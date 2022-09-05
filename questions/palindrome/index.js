@@ -10,7 +10,8 @@
  */
 
 const palindrome = (str) => {
-  
+    reverseStr = str.split("").reduce((accumulator,current)=> current+accumulator);
+    return (str === reverseStr);
 };
 
 module.exports = palindrome;
