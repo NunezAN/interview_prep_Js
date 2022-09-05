@@ -20,9 +20,12 @@ const reverseString = (str) => {
     // }
     // return reversedString;
 
-    strArray= str.split("");
-    strArray.reverse();
-    return strArray.join("");
+    // strArray= str.split("");
+    // strArray.reverse();
+    // return strArray.join("");
+
+    return strArray= str.split("").reduce((accumulator,current)=> current + accumulator);
+
 };
 
 module.exports = reverseString;
