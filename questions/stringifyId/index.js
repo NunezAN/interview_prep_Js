@@ -17,14 +17,19 @@
  */
 
 const stringifyId = (arr) => {
-    let uniqueArray = [];
-    for(let i=0;i<arr.length;i++){
-        if(!uniqueArray.includes(arr[i].id))
-        {
-            uniqueArray.push(arr[i].id);
-        }
-    }
+    // let uniqueArray = [];
+    // for(let i=0;i<arr.length;i++){
+    //     if(!uniqueArray.includes(arr[i].id))
+    //     {
+    //         uniqueArray.push(arr[i].id);
+    //     }
+    // }
+    // return uniqueArray.join(", ");
+
+    const idArray = arr.map(elem => elem.id);
+    const uniqueArray = [...new Set(idArray)];
     return uniqueArray.join(", ");
+
 };
 
 module.exports = stringifyId;
