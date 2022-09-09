@@ -1,19 +1,17 @@
 const maxCharacter = (str) => {
-  const charMap = {};
-  let maxChar = null;
-  let maxCount = 0;
-  for (let char of str) {
-    if (!charMap[char]) {
-      charMap[char] = 1;
-    } else {
-      charMap[char] = charMap[char] + 1;
+    const charMap = new Map();
+    let maxCharacter = "";
+    let maxCount = 0;
+    for(const char of str){
+        const count = charMap.get(char);
+        charMap.set(char, count+1 || 1);
+        if(maxCount < charMap.get(char)){
+            maxCharacter = char;
+            maxCount = charMap.get(char);
+        }
     }
-    if (maxCount < charMap[char]) {
-      maxCount = charMap[char];
-      maxChar = char;
-    }
-  }
-  return maxChar;
+    return maxCharacter;
+
 };
 
 console.log(maxCharacter("foo 111123"));
