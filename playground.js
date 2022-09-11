@@ -1,24 +1,24 @@
 const anagrams = (strA, strB) => {
-  let charMapA = {};
-  let charMapB = {};
+  const charMapA = new Map();
+  const charMapB = new Map();
   let anagram = false;
   for (let char of strA.toUpperCase()) {
-    charMapA[char] = charMapA[char] ? charMapA[char] + 1 : 1;
+    if (char !== " ") {
+      charMapA.set(char, charMapA.get(char) + 1 || 1);
+    }
   }
   for (let char of strB.toUpperCase()) {
-    charMapB[char] = charMapB[char] ? charMapB[char] + 1 : 1;
+    if (char !== " ") {
+      charMapB.set(char, charMapB.get(char) + 1 || 1);
+    }
   }
-  if (Object.keys(charMapA).length === Object.keys(charMapB).length) {
-    for (let elemA in charMapA) {
-      for (let elemB in charMapB) {
-        if (elemA === elemB) {
-          if (charMapA[elemA] !== charMapB[elemB]) {
-            anagram = false;
-            return anagram;
-          } else {
-            anagram = true;
-          }
-        }
+  if (charMapA.size === charMapB.size) {
+    for (const [key, val] of charMapA) {
+      let valB = charMapB.get(key);
+      if (val !== valB || !charMapB.has(key)) {
+        return false;
+      } else {
+        anagram = true;
       }
     }
   }
