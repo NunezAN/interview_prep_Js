@@ -1,5 +1,5 @@
 /** Print out steps based on a given positive integer N.
- * For each line, print out the character '#' to demonstrate 
+ * For each line, print out the character '#' to demonstrate
  * a step and make sure to use spaces to fill in the line.
  *
  * @example
@@ -18,7 +18,17 @@
  */
 
 const steps = (n) => {
-
+    for (let i = 0; i < n; i++) {
+        let str = "";
+        for (let y = 0; y < n; y++) {
+          if (y > i) {
+            str = str + " ";
+          } else {
+            str = str + "#";
+          }
+        }
+        console.log(str);
+      }
 };
 
 module.exports = steps;
