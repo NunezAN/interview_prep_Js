@@ -1,9 +1,14 @@
-const arrayChunk = (array, size) => {
-  let arrayChunk = [];
-  for (let i = 0; i < array.length; i += size) {
-    arrayChunk.push(array.slice(i, i + size));
+const capitalize = (str) => {
+  const strArray = str.split("");
+  let start = 0;
+  for (let i = 0; i < strArray.length; i++) {
+    if ((strArray[i + 1] === " ") || (i===strArray.length - 1)) {
+      console.log("in");
+      strArray[start] = strArray[start].toUpperCase();
+      start = i + 2;
+    }
+    console.log(i, start);
   }
-  return arrayChunk;
+  return strArray;
 };
-
-console.log(arrayChunk([0, 1, 2, 3, 4], 2));
+console.log(capitalize("coding is awesome"));
