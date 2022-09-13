@@ -6,4 +6,4 @@ const arrayChunk = (array, size) => {
   return arrayChunk;
 };
 
-console.log(arrayChunk([0, 1, 2, 3, 4], 3));
+console.log(arrayChunk([0, 1, 2, 3, 4], 2));
