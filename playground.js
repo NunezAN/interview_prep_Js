@@ -1,28 +1,9 @@
-const anagrams = (strA, strB) => {
-  const charMapA = new Map();
-  const charMapB = new Map();
-  let anagram = false;
-  for (let char of strA.toUpperCase()) {
-    if (char !== " ") {
-      charMapA.set(char, charMapA.get(char) + 1 || 1);
-    }
+const arrayChunk = (array, size) => {
+  let arrayChunk = [];
+  for (let i = 0; i < array.length; i += size) {
+    arrayChunk.push(array.slice(i, i + size));
   }
-  for (let char of strB.toUpperCase()) {
-    if (char !== " ") {
-      charMapB.set(char, charMapB.get(char) + 1 || 1);
-    }
-  }
-  if (charMapA.size === charMapB.size) {
-    for (const [key, val] of charMapA) {
-      let valB = charMapB.get(key);
-      if (val !== valB || !charMapB.has(key)) {
-        return false;
-      } else {
-        anagram = true;
-      }
-    }
-  }
-  return anagram;
+  return arrayChunk;
 };
 
-console.log(anagrams("save", "vase"));
+console.log(arrayChunk([0, 1, 2, 3, 4], 3));
