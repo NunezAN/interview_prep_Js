@@ -19,7 +19,7 @@ function updateClock() {
 
   const HourScale = 360 / 12 / 60;
   const extaHoursAngle = timeMinutes * HourScale;
-  const HoursAngle = timeHour * HourScale + extaHoursAngle;
+  const HoursAngle = timeHour * (360 / 12) + extaHoursAngle;
 
   millisecondHandle.style.transform = `translateX(-50%) rotate(${
     timeMilliseconds * (360 / 1000)
