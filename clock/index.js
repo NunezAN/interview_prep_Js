@@ -1,4 +1,3 @@
-const millisecondHandle = document.querySelector(".handleMilliseconds");
 const secondHandle = document.querySelector(".handleSeconds");
 const minuteHandle = document.querySelector(".handleMinute");
 const hourHandle = document.querySelector(".handleHour");
@@ -21,12 +20,12 @@ function updateClock() {
   const extaHoursAngle = timeMinutes * HourScale;
   const HoursAngle = timeHour * (360 / 12) + extaHoursAngle;
 
-  millisecondHandle.style.transform = `translateX(-50%) rotate(${
-    timeMilliseconds * (360 / 1000)
-  }deg)`;
-  secondHandle.style.transform = `translateX(-50%) rotate(${
-    timeSeconds * (360 / 60)
-  }deg)`;
+  const secondScale = 360 / 60 / 1000;
+  const extraSecondScale = timeMilliseconds * secondScale;
+  const secondsHandle = timeSeconds * (360 / 60) + extraSecondScale;
+  console.log(timeSeconds);
+
+  secondHandle.style.transform = `translateX(-50%) rotate(${secondsHandle}deg)`;
   minuteHandle.style.transform = `translateX(-50%) rotate(${minutesAngle}deg)`;
   hourHandle.style.transform = `translateX(-50%) rotate(${HoursAngle}deg)`;
   //   console.log(timeHour);
