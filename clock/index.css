@@ -1,0 +1,82 @@
+.clock {
+  height: 500px;
+  width: 500px;
+  background-color: #696969;
+  border-radius: 50%;
+  position: relative;
+}
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 22px;
+  color: white;
+}
+
+.one {
+  transform: rotate(30deg);
+}
+.two {
+  transform: rotate(60deg);
+}
+.three {
+  transform: rotate(90deg);
+}
+.four {
+  transform: rotate(120deg);
+}
+.five {
+  transform: rotate(150deg);
+}
+.six {
+  transform: rotate(180deg);
+}
+.seven {
+  transform: rotate(210deg);
+}
+.eight {
+  transform: rotate(240deg);
+}
+.nine {
+  transform: rotate(270deg);
+}
+.ten {
+  transform: rotate(300deg);
+}
+.eleven {
+  transform: rotate(330deg);
+}
+.twelve {
+  transform: rotate(360deg);
+}
+.handle {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  transform-origin: bottom;
+}
+.handleMinute {
+  width: 2px;
+  height: 200px;
+}
+
+.handleHour {
+  width: 4px;
+  height: 100px;
+}
+
+.handleSeconds {
+  width: 1px;
+  height: 220px;
+  background-color: red;
+}
+
+.handleMilliseconds {
+  width: 1px;
+  height: 220px;
+  background-color: black;
+  transform: rotate(30deg);
+}
