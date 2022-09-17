@@ -23,7 +23,7 @@ function updateClock() {
   const secondScale = 360 / 60 / 1000;
   const extraSecondScale = timeMilliseconds * secondScale;
   const secondsHandle = timeSeconds * (360 / 60) + extraSecondScale;
-  console.log(timeSeconds);
+//   console.log(timeSeconds);
 
   secondHandle.style.transform = `translateX(-50%) rotate(${secondsHandle}deg)`;
   minuteHandle.style.transform = `translateX(-50%) rotate(${minutesAngle}deg)`;
