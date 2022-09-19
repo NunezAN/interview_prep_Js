@@ -1,13 +1,17 @@
-const containsDuplicate = (nums) => {
-  const map = new Map();
-  for (let i=0;i<nums.length;i++){
-      if(map.has(nums[i]))
-      {
-          return true;
-      }
-      map.set(nums[i],true);
-  }
-  return false;
-}
+const maxSubArray = (nums) => {
+  let max = 0;
+  for (let i = 0; i < nums.length - 1; i++) {
+    let count = nums[i];
+    for (let j = i + 1; j < nums.length; j++) {
+      count += nums[j];
 
-console.log(containsDuplicate([1, 2, 2, 5]));
+      if (count > max) {
+        console.log("new max", count);
+        max = count;
+      }
+    }
+  }
+  return max;
+};
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, -5, 0]));
