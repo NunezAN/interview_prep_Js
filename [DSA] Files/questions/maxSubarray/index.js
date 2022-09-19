@@ -10,19 +10,15 @@
   */
 
 const maxSubArray = (nums) => {
-  let max = 0;
-  if (nums.length===1){
-    return nums[0];
-  }
-  for (let i = 0; i < nums.length - 1; i++) {
-    let count = nums[i];
-    for (let j = i + 1; j < nums.length; j++) {
-      count += nums[j];
-
-      if (count > max) {
-        console.log("new max", count);
-        max = count;
-      }
+  let max = nums[0];
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    count+=nums[i];
+    if(count <0){
+      count = 0;
+    }
+    if(max<count){
+      max=count;
     }
   }
   return max;
