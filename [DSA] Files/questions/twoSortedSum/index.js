@@ -12,7 +12,34 @@
  */
 
 const twoSortedSum = (nums, target) => {
+    // const map =new Map();
+    // for(let index = 0;index<nums.length;index++){
+    //   const difference = target - nums[index];
+    //   if(map.has(nums[index]))
+    //   {
+    //     return [map.get(nums[index]),index]
+    //   }
+    //   map.set(difference, index);
+    // }
+    // return [];
 
+    let l=0;
+    let r=nums.length -1;
+
+    while(l<r){
+        const sum = nums[l] + nums[r];
+        if(sum < target)
+        {
+            l++;
+        }
+        if(sum>target)
+        {
+            r--;
+        }
+        if(sum === target){
+            return [l,r];
+        }
+    }
 }
 
 module.exports = twoSortedSum;

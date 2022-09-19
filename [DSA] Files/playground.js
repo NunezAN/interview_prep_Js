@@ -1,19 +1,14 @@
-const maxSubArray = (nums) => {
-  if (nums.length===1){
-    return nums[0];
-  }
-  let max = 0;
-  let count = 0;
-  for (let i = 0; i < nums.length; i++) {
-    count+=nums[i];
-    if(count <0){
-      count = 0;
+const twoSortedSum = (nums, target) => {
+  const map =new Map();
+  for(let index = 0;index<nums.length;index++){
+    const difference = target - nums[index];
+    if(map.has(nums[index]))
+    {
+      return [map.get(nums[index]),index]
     }
-    if(max<count){
-      max=count;
-    }
+    map.set(difference, index);
   }
-  return max;
-};
+  return [];
+}
 
-console.log(maxSubArray([-2, 1, -3, 4, -1, 2, -5, 0]));
+console.log(twoSortedSum([2, 3, 4], 6));
