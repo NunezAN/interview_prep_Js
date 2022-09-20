@@ -11,18 +11,35 @@
  */
 
 const stocks = (prices) => {
-  let bestStockReturn = 0;
+  //   let bestStockReturn = 0;
 
-  for (let i = 0; i < prices.length - 1; i++) {
-    for (let j = i + 1; j < prices.length; j++) {
-      let returns = prices[j] - prices[i];
-      console.log(returns);
-      if (returns > bestStockReturn) {
-        bestStockReturn = returns;
+  //   for (let i = 0; i < prices.length - 1; i++) {
+  //     for (let j = i + 1; j < prices.length; j++) {
+  //       let returns = prices[j] - prices[i];
+  //       console.log(returns);
+  //       if (returns > bestStockReturn) {
+  //         bestStockReturn = returns;
+  //       }
+  //     }
+  //   }
+  //   return bestStockReturn;
+  let l = 0;
+  let r = l + 1;
+  let max = 0;
+  while (r < prices.length ) {
+    const profit = prices[r] - prices[l];
+    // console.log(l,r)
+    if (profit > 0) {
+      if (max < profit) {
+        max = profit;
       }
     }
+    else{
+        l=r;
+    }
+    r++;
   }
-  return bestStockReturn;
+  return max;
 };
 
 //DO NOT EDIT BELOW THIS LINE
