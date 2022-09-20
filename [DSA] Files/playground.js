@@ -1,14 +1,18 @@
-const twoSortedSum = (nums, target) => {
-  const map =new Map();
-  for(let index = 0;index<nums.length;index++){
-    const difference = target - nums[index];
-    if(map.has(nums[index]))
+const stocks = (prices) => {
+  let bestStockReturn = 0;
+
+  for(let i = 0;i <prices.length-1;i++) {
+    for(let j = i+1;j <prices.length;j++)
     {
-      return [map.get(nums[index]),index]
+      let returns = prices[j]-prices[i];
+      console.log(returns);
+      if(returns>bestStockReturn)
+      {
+        bestStockReturn = returns;
+      }
     }
-    map.set(difference, index);
   }
-  return [];
+  return bestStockReturn;
 }
 
-console.log(twoSortedSum([2, 3, 4], 6));
+console.log(stocks([2, 9, 18, 9, 2]));
