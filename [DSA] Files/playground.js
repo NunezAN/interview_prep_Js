@@ -8,10 +8,10 @@ const productExceptSelf = (nums) => {
     // console.log(leftSum);
     productArray.push(leftSum);
   }
-  for (let i = nums.length-1; i >=1; i--) {
-    rightSum = rightSum * nums[i];
+  for (let i = nums.length-2; i >=0; i--) {
+    rightSum = rightSum * nums[i+1];
     console.log(rightSum);
-    productArray[i-1]=rightSum*productArray[i-1];
+    productArray[i]=rightSum*productArray[i];
   }
   // console.log(leftProducts,rightProducts);
   return productArray;
