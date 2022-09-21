@@ -28,7 +28,7 @@ const meetingTimes = (times) => {
 
 //   return canMeet;
 times.sort(function (a, b) {
-    return a - b;
+    return a[0] - b[0];
   });
   for(i=1;i<times.length;i++){
     meetingStart=times[i][0];

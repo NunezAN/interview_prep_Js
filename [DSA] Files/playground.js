@@ -1,38 +1,19 @@
-const meetingTimes = (times) => {
-  // let canMeet = true;
-  // let meetingTimes = new Set();
-  // for (i = 0; i < times.length; i++) {
-  //   let meetingStart=times[i][0];
-  //   let meetingEnd = times[i][1];
-  //   while(meetingStart<=meetingEnd)
-  //   {
-  //     if(meetingTimes.has(meetingStart)){
-  //       return false;
-  //     }
-  //     meetingTimes.add(meetingStart);
-  //     meetingStart++;
-  //   }
-  // }
-  // console.log(meetingTimes);
-
-  // return canMeet;
-  times.sort(function (a, b) {
-    return a - b;
-  });
-  for(i=1;i<times.length;i++){
-    meetingStart=times[i][0];
-    meetingEnd = times[i-1][1];
-    if(meetingStart < meetingEnd){
-      return false;
+const binarySearch = (nums, target) => {
+  let l = 0;
+  let r = nums.length - 1;
+  let mid = Math.round((l + r) / 2);
+  while (l <= r) {
+    console.log(nums[mid]);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      l = mid + 1;
+    } else if (nums[mid] > target) {
+      r = mid - 1;
     }
+    mid = Math.round((l + r) / 2);
   }
-  console.log(times);
-  return true;
+  return false;
 };
 
-console.log(
-  meetingTimes([
-    [10, 15],
-    [20, 25],
-  ])
-);
+console.log(binarySearch([-3,1,3,5,6,9,12,14,31], 6));
