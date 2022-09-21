@@ -2,9 +2,9 @@
  *
  * Write a function that takes in an array of integers 'nums' and
  * returns an array with the product of all integers except the current integer.
- * 
- * Note: You can not use the division operator 
- * 
+ *
+ * Note: You can not use the division operator
+ *
  * Follow up: Can you do this in constant space? The results array does NOT count to the space.
  *
  * @examples
@@ -14,7 +14,22 @@
  */
 
 const productExceptSelf = (nums) => {
-
+  let productArray = [];
+  productArray.push(1);
+  let leftSum = 1;
+  let rightSum = 1;
+  for (let i = 0; i < nums.length - 1; i++) {
+    leftSum = leftSum * nums[i];
+    // console.log(leftSum);
+    productArray.push(leftSum);
+  }
+  for (let i = nums.length - 1; i >= 1; i--) {
+    rightSum = rightSum * nums[i];
+    console.log(rightSum);
+    productArray[i - 1] = rightSum * productArray[i - 1];
+  }
+  // console.log(leftProducts,rightProducts);
+  return productArray;
 };
 
 module.exports = productExceptSelf;
