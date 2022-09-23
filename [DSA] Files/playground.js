@@ -1,23 +1,22 @@
-const maxWater = (heights) => {
-  let l = 0;
-  let r = heights.length - 1;
-  let maxArea = 0;
+const flatten = (nums) => {
+  const result = []
 
-  while (l < r) {
-    let width = r - l;
-    let height = Math.min(heights[l], heights[r]);
-    let area = width * height;
-    if (area > maxArea) {
-      maxArea = area;
-    }
-
-    if (heights[l] < heights[r]) {
-      l += 1;
-    } else {
-      r -= 1;
+  const flattenArray = (nums) => {
+    for(elem of nums){
+      if(Array.isArray(elem)){
+        console.log("is array",elem);
+        flattenArray(elem);
+      }
+      else{
+        result.push(elem);
+      }
     }
   }
 
-  return maxArea;
-};
-console.log(maxWater([1, 5, 6, 3, 4, 2]));
+  flattenArray(nums)
+
+  return result
+
+
+ };
+console.log(flatten([1, [2, 3, [4, [5]]]]));

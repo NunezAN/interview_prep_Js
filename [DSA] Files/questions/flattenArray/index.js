@@ -14,17 +14,18 @@
  const flatten = (nums) => {
   const result = []
 
-  const flattenHelper = (nums) => {
-    for (elem of nums){
-      if (Array.isArray(elem)){
-        flattenHelper(elem)
-      }else{
-        result.push(elem)
+  const flattenArray = (nums) => {
+    for(elem of nums){
+      if(Array.isArray(elem)){
+        flattenArray(elem);
+      }
+      else{
+        result.push(elem);
       }
     }
   }
 
-  flattenHelper(nums)
+  flattenArray(nums)
 
   return result
 
