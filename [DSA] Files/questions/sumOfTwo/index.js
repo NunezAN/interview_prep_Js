@@ -12,19 +12,17 @@
  */
 
  const sumOfTwo = (nums1, nums2, target) => {
-   const set = new Set();
+  let remainderSet = new Set();
+  for(elem of nums1){
+    remainderSet.add(target-elem);
+  }
 
-   for (num of nums1) {
-     set.add(target - num);
-   }
-
-   for (num of nums2) {
-     if (set.has(num)) {
-       return true;
-     }
-   }
-
-   return false;
+  for(elem of nums2){
+    if(remainderSet.has(elem)){
+      return true;
+    }
+  }
+  return false;
  };
 
 module.exports = sumOfTwo;
