@@ -1,6 +1,16 @@
-const stringifyId = (arr) => {
-  const idArr = arr.map((elem) => elem.id);
-  uniqueIds = [...new Set(idArr)];
-  return uniqueIds.join(", ");
+const maxCharacter = (str) => {
+  const charMap = new Map();
+  let maxChar = "";
+  let maxCount = 0;
+  for (const char of str) {
+    count = charMap.get(char);
+    charMap.set(char, count + 1 || 1);
+    console.log(charMap.get(char));
+    if (maxCount < charMap.get(char)) {
+      maxCount = charMap.get(char);
+      maxChar = char;
+    }
+  }
+  return maxChar;
 };
-console.log(stringifyId([{ id: 1 }, { id: 2 }, { id: 2 }, { id: 3 }]));
+console.log(maxCharacter("aabbbccd"));

@@ -20,31 +20,45 @@ const maxCharacter = (str) => {
   // });
   // return strMost[0];
 
-//   const charMap = {};
-//   let maxChar = null;
-//   let maxCount = 0;
-//   for (let char of str) {
-//     charMap[char] = charMap[char] ? charMap[char] + 1 : 1;
+  //   const charMap = {};
+  //   let maxChar = null;
+  //   let maxCount = 0;
+  //   for (let char of str) {
+  //     charMap[char] = charMap[char] ? charMap[char] + 1 : 1;
 
-//     if (maxCount < charMap[char]) {
-//       maxCount = charMap[char];
-//       maxChar = char;
-//     }
-//   }
-//   return maxChar;
+  //     if (maxCount < charMap[char]) {
+  //       maxCount = charMap[char];
+  //       maxChar = char;
+  //     }
+  //   }
+  //   return maxChar;
 
-const charMap = new Map();
-    let maxCharacter = "";
-    let maxCount = 0;
-    for(const char of str){
-        const count = charMap.get(char);
-        charMap.set(char, count+1 || 1);
-        if(maxCount < charMap.get(char)){
-            maxCharacter = char;
-            maxCount = charMap.get(char);
-        }
+  // const charMap = new Map();
+  //     let maxCharacter = "";
+  //     let maxCount = 0;
+  //     for(const char of str){
+  //         const count = charMap.get(char);
+  //         charMap.set(char, count+1 || 1);
+  //         if(maxCount < charMap.get(char)){
+  //             maxCharacter = char;
+  //             maxCount = charMap.get(char);
+  //         }
+  //     }
+  //     return maxCharacter;
+
+  const charMap = new Map();
+  let maxChar = "";
+  let maxCount = 0;
+  for (const char of str) {
+    count = charMap.get(char);
+    charMap.set(char, count + 1 || 1);
+    console.log(charMap.get(char));
+    if (maxCount < charMap.get(char)) {
+      maxCount = charMap.get(char);
+      maxChar = char;
     }
-    return maxCharacter;
+  }
+  return maxChar;
 };
 
 module.exports = maxCharacter;
