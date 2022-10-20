@@ -24,8 +24,8 @@ const reverseString = (str) => {
     // strArray.reverse();
     // return strArray.join("");
 
-    return strArray= str.split("").reduce((accumulator,current)=> current + accumulator);
-
+    // return strArray= str.split("").reduce((accumulator,current)=> current + accumulator);
+    return str.split("").reverse().join("");
 };
 
 module.exports = reverseString;
