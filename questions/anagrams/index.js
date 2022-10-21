@@ -39,30 +39,54 @@ const anagrams = (strA, strB) => {
   //   }
   //   return anagram;
 
-  const charMapA = new Map();
-  const charMapB = new Map();
-  let anagram = false;
-  for (let char of strA.toUpperCase()) {
-    if (char !== " ") {
-      charMapA.set(char, charMapA.get(char) + 1 || 1);
-    }
+  // const charMapA = new Map();
+  // const charMapB = new Map();
+  // let anagram = false;
+  // for (let char of strA.toUpperCase()) {
+  //   if (char !== " ") {
+  //     charMapA.set(char, charMapA.get(char) + 1 || 1);
+  //   }
+  // }
+  // for (let char of strB.toUpperCase()) {
+  //   if (char !== " ") {
+  //     charMapB.set(char, charMapB.get(char) + 1 || 1);
+  //   }
+  // }
+  // if (charMapA.size === charMapB.size) {
+  //   for (const [key, val] of charMapA) {
+  //     let valB = charMapB.get(key);
+  //     if (val !== valB || !charMapB.has(key)) {
+  //       return false;
+  //     } else {
+  //       anagram = true;
+  //     }
+  //   }
+  // }
+  // return anagram;
+  let charMapA = new Map();
+  for (const char of strA.toLowerCase().split(" ").join("")) {
+    const count = charMapA.get(char);
+    charMapA.set(char, count + 1 || 1);
   }
-  for (let char of strB.toUpperCase()) {
-    if (char !== " ") {
-      charMapB.set(char, charMapB.get(char) + 1 || 1);
-    }
+
+  let charMapB = new Map();
+
+  for (const char of strB.toLowerCase().split(" ").join("")) {
+    const count = charMapB.get(char);
+    charMapB.set(char, count + 1 || 1);
   }
-  if (charMapA.size === charMapB.size) {
-    for (const [key, val] of charMapA) {
-      let valB = charMapB.get(key);
-      if (val !== valB || !charMapB.has(key)) {
+  if (charMapA.size !== charMapB.size) {
+    return false;
+  }
+  console.log(charMapA.size, charMapB.size);
+  for (const [char, count] of charMapA) {
+    if (charMapA.has(char)) {
+      if (charMapB.get(char) !== count) {
         return false;
-      } else {
-        anagram = true;
       }
     }
   }
-  return anagram;
+  return true;
 };
 
 module.exports = anagrams;
