@@ -8,11 +8,17 @@
  */
 
 const arrayChunk = (array, size) => {
-  let arrayChunk = [];
+  // let arrayChunk = [];
+  // for (let i = 0; i < array.length; i += size) {
+  //   arrayChunk.push(array.slice(i, i + size));
+  // }
+  // return arrayChunk;
+
+  let chunkArray = [];
   for (let i = 0; i < array.length; i += size) {
-    arrayChunk.push(array.slice(i, i + size));
+    chunkArray.push(array.slice(i, i + size));
   }
-  return arrayChunk;
+  return chunkArray;
 };
 
 module.exports = arrayChunk;

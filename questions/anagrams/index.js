@@ -64,26 +64,25 @@ const anagrams = (strA, strB) => {
   // }
   // return anagram;
   let charMapA = new Map();
-  for (const char of strA.toLowerCase().split(" ").join("")) {
+  for (char of strA.split(" ").join("").toLowerCase()) {
     const count = charMapA.get(char);
     charMapA.set(char, count + 1 || 1);
   }
-
   let charMapB = new Map();
-
-  for (const char of strB.toLowerCase().split(" ").join("")) {
+  for (char of strB.split(" ").join("").toLowerCase()) {
     const count = charMapB.get(char);
     charMapB.set(char, count + 1 || 1);
   }
   if (charMapA.size !== charMapB.size) {
     return false;
   }
-  console.log(charMapA.size, charMapB.size);
-  for (const [char, count] of charMapA) {
-    if (charMapA.has(char)) {
-      if (charMapB.get(char) !== count) {
+  for ([char, count] of charMapA) {
+    if (charMapB.has(char)) {
+      if (charMapA.get(char) !== charMapB.get(char)) {
         return false;
       }
+    } else {
+      return false;
     }
   }
   return true;
