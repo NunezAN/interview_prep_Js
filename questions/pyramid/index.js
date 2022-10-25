@@ -18,19 +18,32 @@
  */
 
 const pyramid = (n) => {
-    columnWidth = 2 * n - 1;
-    for (let row = 0; row < n; row++) {
-      let pyramidColumn = "";
-      for (let column = 0; column <= columnWidth; column++) {
-        middle = Math.floor(columnWidth / 2);
-        if (column>= middle -row && column <= middle + row) {
-          pyramidColumn = pyramidColumn + "#";
-        } else {
-          pyramidColumn = pyramidColumn + " ";
-        }
+  // columnWidth = 2 * n - 1;
+  // for (let row = 0; row < n; row++) {
+  //   let pyramidColumn = "";
+  //   for (let column = 0; column <= columnWidth; column++) {
+  //     middle = Math.floor(columnWidth / 2);
+  //     if (column>= middle -row && column <= middle + row) {
+  //       pyramidColumn = pyramidColumn + "#";
+  //     } else {
+  //       pyramidColumn = pyramidColumn + " ";
+  //     }
+  //   }
+  //   console.log(pyramidColumn);
+  // }
+  columnWidth = 2 * n - 1;
+  const mid = Math.floor(columnWidth / 2);
+  for (let row = 0; row < n; row++) {
+    colString = "";
+    for (let col = 0; col < columnWidth; col++) {
+      if (col <= mid + row && col >= mid - row) {
+        colString += `#`;
+      } else {
+        colString += ` `;
       }
-      console.log(pyramidColumn);
     }
+    console.log(colString);
+  }
 };
 
 module.exports = pyramid;

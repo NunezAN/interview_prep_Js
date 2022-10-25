@@ -18,17 +18,28 @@
  */
 
 const steps = (n) => {
-    for (let i = 0; i < n; i++) {
-        let str = "";
-        for (let y = 0; y < n; y++) {
-          if (y > i) {
-            str = str + " ";
-          } else {
-            str = str + "#";
-          }
-        }
-        console.log(str);
+  // for (let i = 0; i < n; i++) {
+  //     let str = "";
+  //     for (let y = 0; y < n; y++) {
+  //       if (y > i) {
+  //         str = str + " ";
+  //       } else {
+  //         str = str + "#";
+  //       }
+  //     }
+  //     console.log(str);
+  //   }
+  for (let i = 0; i < n; i++) {
+    let consoleString = "";
+    for (let j = 0; j < n; j++) {
+      if (j <= i) {
+        consoleString += `#`;
+      } else {
+        consoleString += ` `;
       }
+    }
+    console.log(consoleString);
+  }
 };
 
 module.exports = steps;

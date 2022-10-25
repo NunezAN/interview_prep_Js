@@ -1,8 +1,17 @@
-const capitalize = (str) => {
-  let capString = [];
-  for (char of str.split(" ")) {
-    capString.push(char.slice(0, 1).toUpperCase() + char.slice(1, char.length));
+const pyramid = (n) => {
+  columnWidth = 2 * n - 1;
+  const mid = Math.floor(columnWidth / 2);
+  for (let row = 0; row < n; row++) {
+    colString = "";
+    for (let col = 0; col < columnWidth; col++) {
+      if(col <= mid+row && col >= mid-row){
+        colString += `#`;
+      }
+      else{
+        colString += ` `;
+      }
+    }
+    console.log(colString);
   }
-  return capString.join(" ");
 };
-console.log(capitalize("coding is awesome"));
+console.log(pyramid(4));
