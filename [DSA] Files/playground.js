@@ -1,17 +1,13 @@
-const pyramid = (n) => {
-  columnWidth = 2 * n - 1;
-  const mid = Math.floor(columnWidth / 2);
-  for (let row = 0; row < n; row++) {
-    colString = "";
-    for (let col = 0; col < columnWidth; col++) {
-      if(col <= mid+row && col >= mid-row){
-        colString += `#`;
-      }
-      else{
-        colString += ` `;
-      }
+const twoSum = (nums, target) => {
+  targetMap = new Map();
+  for(let i=0;i<nums.length;i++){
+    if(targetMap.has(nums[i]))
+    {
+      return [targetMap.get(nums[i]),i];
     }
-    console.log(colString);
+    targetMap.set(target-nums[i],i);
+    console.log(targetMap);
   }
+  
 };
-console.log(pyramid(4));
+console.log(twoSum([1, 2, 4, 9], 13));
