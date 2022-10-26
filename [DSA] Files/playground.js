@@ -1,13 +1,12 @@
-const twoSum = (nums, target) => {
-  targetMap = new Map();
-  for(let i=0;i<nums.length;i++){
-    if(targetMap.has(nums[i]))
-    {
-      return [targetMap.get(nums[i]),i];
+const containsDuplicate = (nums)  => {
+  let dupMap = new Map();
+  for(const num of nums){
+    if(dupMap.has(num)){
+      return true;
     }
-    targetMap.set(target-nums[i],i);
-    console.log(targetMap);
+    dupMap.set(num,true);
   }
+  return false;
   
 };
-console.log(twoSum([1, 2, 4, 9], 13));
+console.log(containsDuplicate([1, 2, 2, 5]));

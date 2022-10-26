@@ -11,12 +11,12 @@
  */
 
 const containsDuplicate = (nums) => {
-  const map = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    if (map.has(nums[i])) {
+  let dupMap = new Map();
+  for (const num of nums) {
+    if (dupMap.has(num)) {
       return true;
     }
-    map.set(nums[i], true);
+    dupMap.set(num, true);
   }
   return false;
 };
