@@ -1,12 +1,16 @@
-const containsDuplicate = (nums)  => {
-  let dupMap = new Map();
-  for(const num of nums){
-    if(dupMap.has(num)){
-      return true;
+const maxSubArray = (nums) => {
+  let max = nums[0];
+  let maxCount = nums[0];
+  for (const num of nums.slice(1)) {
+    maxCount += num;
+    if (maxCount < 0) {
+      maxCount = 0;
     }
-    dupMap.set(num,true);
+    if (max < maxCount) {
+      max= maxCount;
+      console.log(max,num)
+    }
   }
-  return false;
-  
+  return max;
 };
-console.log(containsDuplicate([1, 2, 2, 5]));
+console.log(maxSubArray([5, 4, -1, 7, 8]));
