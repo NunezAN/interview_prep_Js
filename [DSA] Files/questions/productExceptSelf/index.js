@@ -14,22 +14,36 @@
  */
 
 const productExceptSelf = (nums) => {
-  let productArray = [];
-  productArray.push(1);
-  let leftSum = 1;
-  let rightSum = 1;
-  for (let i = 0; i < nums.length - 1; i++) {
-    leftSum = leftSum * nums[i];
-    // console.log(leftSum);
-    productArray.push(leftSum);
+  // let productArray = [];
+  // productArray.push(1);
+  // let leftSum = 1;
+  // let rightSum = 1;
+  // for (let i = 0; i < nums.length - 1; i++) {
+  //   leftSum = leftSum * nums[i];
+  //   // console.log(leftSum);
+  //   productArray.push(leftSum);
+  // }
+  // for (let i = nums.length - 2; i >= 0; i--) {
+  //   rightSum = rightSum * nums[i + 1];
+  //   console.log(rightSum);
+  //   productArray[i] = rightSum * productArray[i];
+  // }
+  // // console.log(leftProducts,rightProducts);
+  // return productArray;
+  resultArr = [];
+  let selectedNum = 0;
+  while (selectedNum < nums.length) {
+    let count = 1;
+    for (const num of nums) {
+      if (num !== nums[selectedNum]) {
+        count *= num;
+      }
+    }
+    resultArr.push(count);
+    count = 1;
+    selectedNum++;
   }
-  for (let i = nums.length - 2; i >= 0; i--) {
-    rightSum = rightSum * nums[i + 1];
-    console.log(rightSum);
-    productArray[i] = rightSum * productArray[i];
-  }
-  // console.log(leftProducts,rightProducts);
-  return productArray;
+  return resultArr;
 };
 
 module.exports = productExceptSelf;

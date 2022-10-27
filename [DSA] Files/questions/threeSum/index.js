@@ -44,7 +44,7 @@ function threeSum(nums) {
   //   r = nums.length - 1;
   // }
   // return solutionArray;
-  nums = nums.sort(function (a, b) {
+  nums = nums.sort((a, b) => {
     return a - b;
   });
   const threeSumArray = [];
