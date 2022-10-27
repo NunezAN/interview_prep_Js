@@ -1,16 +1,24 @@
-const maxSubArray = (nums) => {
-  let max = nums[0];
-  let maxCount = nums[0];
-  for (const num of nums.slice(1)) {
-    maxCount += num;
-    if (maxCount < 0) {
-      maxCount = 0;
+const twoSortedSum = (nums, target) => {
+  // const targetMap = new Map();
+  // for (let i = 0; i < nums.length; i++) {
+  //   if (targetMap.has(nums[i])) {
+  //     return [targetMap.get(nums[i]), i];
+  //   }
+  //   targetMap.set(target-nums[i],i);
+  // }
+  l=0;
+  r=nums.length-1;
+  while(l<r){
+    const numSum = nums[l]+nums[r];
+    if(numSum === target){
+      return [l,r];
     }
-    if (max < maxCount) {
-      max= maxCount;
-      console.log(max,num)
+    else if(numSum<target){
+      l++;
+    }
+    else{
+      r++;
     }
   }
-  return max;
 };
-console.log(maxSubArray([5, 4, -1, 7, 8]));
+console.log(twoSortedSum([1, 2, 4, 9], 13));
