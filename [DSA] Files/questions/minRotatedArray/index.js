@@ -13,17 +13,29 @@
  */
 
 const findMinimum = (nums) => {
-  let l = 0;
-  let r = nums.length - 1;
-  let mid = 0;
+  // let l = 0;
+  // let r = nums.length - 1;
+  // let mid = 0;
+  // while (l < r) {
+  //   console.log(l, r);
+  //   mid = Math.floor((l + r) / 2);
+  //   if (nums[mid] > nums[r]) {
+  //     l = mid + 1;
+  //   } else {
+  //     r = mid;
+  //   }
+  // }
+  // return nums[l];
+  l = 0;
+  r = nums.length - 1;
+  let mid = Math.floor((l + r) / 2);
   while (l < r) {
-    console.log(l, r);
-    mid = Math.floor((l + r) / 2);
     if (nums[mid] > nums[r]) {
       l = mid + 1;
     } else {
       r = mid;
     }
+    mid = Math.floor((l + r) / 2);
   }
   return nums[l];
 };

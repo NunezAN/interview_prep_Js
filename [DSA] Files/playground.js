@@ -1,19 +1,15 @@
-const binarySearch = (nums, target) => {
-  let l = 0;
-  let r = nums.length - 1;
+const findMinimum = (nums) => {
+  l = 0;
+  r = nums.length - 1;
   let mid = Math.floor((l + r) / 2);
   while (l < r) {
-    console.log(nums[mid]);
-    if (nums[mid] === target) {
-      return mid;
-    }
-    if (nums[mid] < target) {
-      l = mid+1;
-    } else if (nums[mid] > target) {
-      r = mid-1;
+    if (nums[mid] > nums[r]) {
+      l = mid + 1;
+    } else {
+      r = mid;
     }
     mid = Math.floor((l + r) / 2);
   }
-  return false;
+  return nums[l];
 };
-console.log(binarySearch([1, 2, 4, 9, 12], 9));
+console.log(findMinimum([5, 4, 1, 2]));
