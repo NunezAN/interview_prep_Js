@@ -1,17 +1,15 @@
-const productExceptSelf = (nums) => {
-  resultArr = [];
-  let selectedNum = 0;
-  while (selectedNum < nums.length) {
-    let count = 1;
-    for (const num of nums) {
-      if (num !== nums[selectedNum]) {
-        count *= num;
-      }
+const meetingTimes = (times) => {
+  times.sort(function (a, b) {
+    return a[0] - b[0];
+  });
+  for (let i = 0; i < times.length - 1; i++) {
+    console.log(times[i][1], times[i + 1][0]);
+    if (times[i][1] > times[i + 1][0]) {
+      return false;
     }
-    resultArr.push(count);
-    count = 1;
-    selectedNum++;
   }
-  return resultArr;
+  return true;
 };
-console.log(productExceptSelf([1, 2, 3, 4]));
+console.log(
+  meetingTimes([[5, 10], [10, 15], [12, 25], [25, 30]])
+);

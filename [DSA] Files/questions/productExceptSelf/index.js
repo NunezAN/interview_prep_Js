@@ -25,7 +25,7 @@ const productExceptSelf = (nums) => {
   // }
   // for (let i = nums.length - 2; i >= 0; i--) {
   //   rightSum = rightSum * nums[i + 1];
-  //   console.log(rightSum);
+  //   // console.log(rightSum);
   //   productArray[i] = rightSum * productArray[i];
   // }
   // // console.log(leftProducts,rightProducts);
