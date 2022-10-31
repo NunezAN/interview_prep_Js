@@ -1,15 +1,19 @@
-const meetingTimes = (times) => {
-  times.sort(function (a, b) {
-    return a[0] - b[0];
-  });
-  for (let i = 0; i < times.length - 1; i++) {
-    console.log(times[i][1], times[i + 1][0]);
-    if (times[i][1] > times[i + 1][0]) {
-      return false;
+const binarySearch = (nums, target) => {
+  let l = 0;
+  let r = nums.length - 1;
+  let mid = Math.floor((l + r) / 2);
+  while (l < r) {
+    console.log(nums[mid]);
+    if (nums[mid] === target) {
+      return mid;
     }
+    if (nums[mid] < target) {
+      l = mid+1;
+    } else if (nums[mid] > target) {
+      r = mid-1;
+    }
+    mid = Math.floor((l + r) / 2);
   }
-  return true;
+  return false;
 };
-console.log(
-  meetingTimes([[5, 10], [10, 15], [12, 25], [25, 30]])
-);
+console.log(binarySearch([1, 2, 4, 9, 12], 9));
