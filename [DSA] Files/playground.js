@@ -1,14 +1,30 @@
-const flatten = (nums) => {
-  const flatten = [];
-  const flattenFunc = (nums) =>{
-    for(const num of nums){
-      if(Array.isArray(num)){
-        flattenFunc(num);
+const moveZeroes = (nums) => {
+  let l = 0;
+  let r = nums.length - 1;
+  while (l < r) {
+    if (nums[l] === 0) {
+      while(nums[r]===0){
+        r--;
       }
-      else(flatten.push(num));
+      const temp = nums[r];
+      nums[r] = nums[l];
+      nums[l] = temp;
+      r--;
     }
+    l++;
   }
-  flattenFunc(nums);
-  return flatten;
+  return nums;
+  // let l = 0;
+  // let r = 0;
+  // while (r < nums.length) {
+  //   if (nums[r] !== 0) {
+  //     let temp = nums[l];
+  //     nums[l] = nums[r];
+  //     nums[r] = temp;
+  //     l++;
+  //   }
+  //   r++;
+  // }
+  // return nums;
 };
-console.log(flatten([1, 2, 3, [4, 5]]));
+console.log(moveZeroes([0, 0, 1, 2, 3]));
