@@ -1,9 +1,8 @@
-const reverseInt = (int) => {
-  const intStr = int.toString().split("").reverse().join("");
-  let result = parseInt(intStr);
-  if (int < 0) {
-    result *= -1;
+const reverseString = (str) => {
+  let result = "";
+  for(const char of str){
+    result = char+result;
   }
   return result;
 };
-console.log(reverseInt(-641));
+console.log(reverseString('david'));

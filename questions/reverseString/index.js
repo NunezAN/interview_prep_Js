@@ -14,18 +14,22 @@
 // a = 'ivaD', c = 'd' => a = 'd' + 'ivaD' = 'divaD'
 
 const reverseString = (str) => {
-    // let reversedString = "";
-    // for(let i= str.length-1;i>=0;i--){
-    //     reversedString = reversedString.concat(str[i]);
-    // }
-    // return reversedString;
+  // let reversedString = "";
+  // for(let i= str.length-1;i>=0;i--){
+  //     reversedString = reversedString.concat(str[i]);
+  // }
+  // return reversedString;
 
-    // strArray= str.split("");
-    // strArray.reverse();
-    // return strArray.join("");
+  // strArray= str.split("");
+  // strArray.reverse();
+  // return strArray.join("");
 
-    // return strArray= str.split("").reduce((accumulator,current)=> current + accumulator);
-    return str.split("").reverse().join("");
+  // return strArray= str.split("").reduce((accumulator,current)=> current + accumulator);
+  let result = "";
+  for (const char of str) {
+    result = char + result;
+  }
+  return result;
 };
 
 module.exports = reverseString;
