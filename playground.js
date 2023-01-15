@@ -19,5 +19,6 @@ const anagrams = (strA, strB) => {
     }
   }
   return true;
+  //comment
 };
 console.log(anagrams("save", "vase"));
