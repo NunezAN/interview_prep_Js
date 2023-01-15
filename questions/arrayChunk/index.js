@@ -14,11 +14,13 @@ const arrayChunk = (array, size) => {
   // }
   // return arrayChunk;
 
-  let chunkArray = [];
-  for (let i = 0; i < array.length; i += size) {
-    chunkArray.push(array.slice(i, i + size));
-  }
-  return chunkArray;
+ 
+    let result = [];
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.slice(i, i + size));
+    }
+    return result;
+ 
 };
 
 module.exports = arrayChunk;
