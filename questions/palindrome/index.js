@@ -20,8 +20,12 @@ const palindrome = (str) => {
   //     }
   // }
   // return palindrome;
-  
-  return(str ===(str.split("").reverse().join("")));
+
+  reverseStr = "";
+  for (const char of str) {
+    reverseStr = char + reverseStr;
+  }
+  return reverseStr === str;
 };
 
 module.exports = palindrome;
