@@ -30,9 +30,13 @@ const stringifyId = (arr) => {
   // const uniqueArray = [...new Set(idArray)];
   // return uniqueArray.join(", ");
 
-  const idArr = arr.map((elem) => elem.id);
-  uniqueIds = [...new Set(idArr)];
-  return uniqueIds.join(", ");
+  
+    resultSet = new Set();
+    arr.forEach((elem) => {
+      resultSet.add(elem.id);
+    });
+    return [...resultSet].join(", ");
+  
 };
 
 module.exports = stringifyId;

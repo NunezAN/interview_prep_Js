@@ -1,14 +1,14 @@
-const steps = (n) => {
-  for (let i = 0; i < n; i++) {
-    let row = "";
-    for (let j = 0; j < n; j++) {
-      if (j <= i) {
-        row += "*";
-      } else {
-        row += " ";
-      }
-    }
-    console.log(row);
-  }
+const stringifyId = (arr) => {
+  resultSet = new Set();
+  arr.forEach((elem) => {
+    resultSet.add(elem.id.toUpperCase());
+  });
+  return [...resultSet];
 };
-console.log(steps(4));
+console.log(
+  stringifyId([
+    { id: "ABC", name: "David" },
+    { id: "abc", name: "Bragg" },
+    { id: "CBA", name: "Bragg" },
+  ])
+);
