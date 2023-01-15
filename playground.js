@@ -1,10 +1,16 @@
-const capitalize = (str) => {
-  const strArr = str.split(" ");
-  const result = [];
-  for (let word of strArr) {
-    result.push(word[0].toUpperCase() + word.slice(1, word.length));
+const maxCharacter = (str) => {
+  let strMap = new Map();
+  for (const char of str) {
+    strMap.set(char, strMap.get(char) + 1 || 1);
   }
-  console.log(result);
-  return result.join(" ");
+  let maxChar = "";
+  let maxVal = 0;
+  for (const [key, val] of strMap) {
+    if (val > maxVal) {
+      maxChar = key;
+      maxVal = val;
+    }
+  }
+  return maxChar;
 };
-console.log(capitalize("coding is awesome"));
+console.log(maxCharacter("aabbbccd"));

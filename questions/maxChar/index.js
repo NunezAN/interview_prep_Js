@@ -46,15 +46,16 @@ const maxCharacter = (str) => {
   //     }
   //     return maxCharacter;
 
-  const charMap = new Map();
+  let strMap = new Map();
+  for (const char of str) {
+    strMap.set(char, strMap.get(char) + 1 || 1);
+  }
   let maxChar = "";
-  let maxCount = 0;
-  for (char of str) {
-    const count = charMap.get(char);
-    charMap.set(char, count + 1 || 1);
-    if (maxCount < charMap.get(char)) {
-      maxCount = charMap.get(char);
-      maxChar = char;
+  let maxVal = 0;
+  for (const [key, val] of strMap) {
+    if (val > maxVal) {
+      maxChar = key;
+      maxVal = val;
     }
   }
   return maxChar;
