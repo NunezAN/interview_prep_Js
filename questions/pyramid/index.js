@@ -31,18 +31,18 @@ const pyramid = (n) => {
   //   }
   //   console.log(pyramidColumn);
   // }
-  columnWidth = 2 * n - 1;
-  const mid = Math.floor(columnWidth / 2);
-  for (let row = 0; row < n; row++) {
-    colString = "";
-    for (let col = 0; col < columnWidth; col++) {
-      if (col <= mid + row && col >= mid - row) {
-        colString += `#`;
+  const colWidth = 2 * n - 1;
+  const mid = Math.floor(colWidth / 2);
+  for (let i = 0; i < n; i++) {
+    let col = "";
+    for (let j = 0; j < colWidth; j++) {
+      if (j <= mid + i && j >= mid - i) {
+        col = col + "#";
       } else {
-        colString += ` `;
+        col = col + " ";
       }
     }
-    console.log(colString);
+    console.log(col);
   }
 };
 
