@@ -63,25 +63,26 @@ const anagrams = (strA, strB) => {
   //   }
   // }
   // return anagram;
+
   let charMapA = new Map();
-  for (char of strA.split(" ").join("").toLowerCase()) {
-    const count = charMapA.get(char);
-    charMapA.set(char, count + 1 || 1);
-  }
   let charMapB = new Map();
-  for (char of strB.split(" ").join("").toLowerCase()) {
-    const count = charMapB.get(char);
-    charMapB.set(char, count + 1 || 1);
+
+  for (let str of strA.toUpperCase()) {
+    if (str !== " ") {
+      charMapA.set(str, charMapA.get(str) + 1 || 1);
+    }
   }
-  if (charMapA.size !== charMapB.size) {
-    return false;
+  for (let str of strB.toUpperCase()) {
+    if (str !== " ") {
+      charMapB.set(str, charMapB.get(str) + 1 || 1);
+    }
   }
-  for ([char, count] of charMapA) {
-    if (charMapB.has(char)) {
-      if (charMapA.get(char) !== charMapB.get(char)) {
-        return false;
-      }
-    } else {
+  if (charMapA.size !== charMapB.size) return false;
+
+  for (const [key, val] of charMapA) {
+    const valB = charMapB.get(key);
+    valB;
+    if (val !== valB || !charMapB.has(key)) {
       return false;
     }
   }

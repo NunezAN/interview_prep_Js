@@ -1,13 +1,9 @@
-const sumOfTwo = (nums1, nums2, target) => {
-  const remainderSet = new Set();
-  for(num of nums1){
-    remainderSet.add(target-num)
+const anagrams = (strA, strB) => {
+  let charMapA = new Map();
+  let charMapB = new Map();
+
+  for (let str of strA) {
+    console.log(str);
   }
-  for(num of nums2){
-    if(remainderSet.has(num)){
-      return true;
-    }
-  }
-  return false;
 };
-console.log( sumOfTwo([1, 2, 3], [5, 2], 8));
+console.log( anagrams('save', 'vase'));
