@@ -16,11 +16,12 @@ const capitalize = (str) => {
   //   result.push(firstLetter + restWord);
   // }
   // return result.join(" ");
-  let capString = [];
-  for (char of str.split(" ")) {
-    capString.push(char.slice(0, 1).toUpperCase() + char.slice(1, char.length));
+  const strArr = str.split(" ");
+  const result = [];
+  for (let word of strArr) {
+    result.push(word[0].toUpperCase() + word.slice(1, word.length));
   }
-  return capString.join(" ");
+  return result.join(" ");
 };
 
 module.exports = capitalize;

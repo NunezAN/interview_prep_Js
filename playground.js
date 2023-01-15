@@ -1,8 +1,10 @@
-const arrayChunk = (array, size) => {
-  let result = [];
-  for (let i = 0; i < array.length; i += size) {
-    result.push(array.slice(i, i + size));
+const capitalize = (str) => {
+  const strArr = str.split(" ");
+  const result = [];
+  for (let word of strArr) {
+    result.push(word[0].toUpperCase() + word.slice(1, word.length));
   }
-  return result;
+  console.log(result);
+  return result.join(" ");
 };
-console.log(arrayChunk([0, 1, 2, 3], 2));
+console.log(capitalize("coding is awesome"));

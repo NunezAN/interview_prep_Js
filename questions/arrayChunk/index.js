@@ -20,7 +20,7 @@ const arrayChunk = (array, size) => {
       result.push(array.slice(i, i + size));
     }
     return result;
- 
+    
 };
 
 module.exports = arrayChunk;
