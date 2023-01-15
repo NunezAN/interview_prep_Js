@@ -13,11 +13,12 @@ const reverseInteger = (int) => {
   //     reverseIntString = "-" + reverseIntString;
   // }
   // return parseInt(reverseIntString);
-  let arrName = int.toString().split("").reverse().join("");
+  const intStr = int.toString().split("").reverse().join("");
+  let result = parseInt(intStr);
   if (int < 0) {
-    arrName = "-" + arrName;
+    result *= -1;
   }
-  return parseInt(arrName);
+  return result;
 };
 
 module.exports = reverseInteger;
