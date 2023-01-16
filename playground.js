@@ -1,18 +1,13 @@
-const binarySearch = (nums, target) => {
-  let l = 0;
-  let r = nums.length - 1;
-  let mid = Math.floor((l + r) / 2);
-  while (l < r) {
-    if (nums[mid] === target) {
-      return mid;
+const bubbleSort = (nums) => {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length - 1 - i; j++) {
+      if (nums[j] > nums[j + 1]) {
+        let temp = nums[j + 1];
+        nums[j + 1] = nums[j];
+        nums[j] = temp;
+      }
     }
-    if (nums[mid] < target) {
-      l = mid + 1;
-    } else if (nums[mid] > target) {
-      r = mid - 1;
-    }
-    mid = Math.floor((l + r) / 2);
   }
-  return 0;
+  return nums;
 };
-console.log(binarySearch([1, 2, 4, 9, 12], 9));
+console.log(bubbleSort([3, 2, 1]));
