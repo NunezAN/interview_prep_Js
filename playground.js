@@ -1,16 +1,15 @@
-const flatten = (nums) => {
-  result = [];
-  const flattenArr = (arr) => {
-    for (let num of arr) {
-      if (Array.isArray(num)) {
-        flattenArr(num);
-      }
-      else{
-        result.push(num);
-      }
+const maxSubArray = (nums) => {
+  let count = nums[0];
+  let maxCount = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    count += nums[i];
+    if (count < 0) {
+      count = 0;
     }
-  };
-  flattenArr(nums);
-  return result;
+    if (count > maxCount) {
+      maxCount = count;
+    }
+  }
+  return maxCount;
 };
-console.log(flatten([1, 2, 3, [4, 5]]));
+console.log(maxSubArray([5, 4, -1, 7, 8]));

@@ -10,19 +10,31 @@
  */
 
 const maxSubArray = (nums) => {
-  let max = nums[0];
+  // let max = nums[0];
+  // let maxCount = nums[0];
+  // for (const num of nums.slice(1)) {
+  //   maxCount += num;
+  //   if (maxCount < 0) {
+  //     maxCount = 0;
+  //   }
+  //   if (max < maxCount) {
+  //     max = maxCount;
+  //     console.log(max, num);
+  //   }
+  // }
+  // return max;
+  let count = nums[0];
   let maxCount = nums[0];
-  for (const num of nums.slice(1)) {
-    maxCount += num;
-    if (maxCount < 0) {
-      maxCount = 0;
+  for (let i = 1; i < nums.length; i++) {
+    count += nums[i];
+    if (count < 0) {
+      count = 0;
     }
-    if (max < maxCount) {
-      max = maxCount;
-      console.log(max, num);
+    if (count > maxCount) {
+      maxCount = count;
     }
   }
-  return max;
+  return maxCount;
 };
 
 //DO NOT EDIT BELOW THIS LINE
