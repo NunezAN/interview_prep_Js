@@ -39,11 +39,9 @@ const meetingTimes = (times) => {
   //   }
   //   console.log(times);
   //   return true;
-  times.sort(function (a, b) {
-    return a[0] - b[0];
-  });
-  for (let i = 0; i < times.length - 1; i++) {
-    if (times[i][1] > times[i + 1][0]) {
+  const sortedTimes = times.sort((a, b) => a[0] - b[0]);
+  for (let i = 0; i < sortedTimes.length - 1; i++) {
+    if (sortedTimes[i][1] > sortedTimes[i + 1][0]) {
       return false;
     }
   }

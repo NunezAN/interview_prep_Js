@@ -1,15 +1,16 @@
-const maxSubArray = (nums) => {
-  let count = nums[0];
-  let maxCount = nums[0];
-  for (let i = 1; i < nums.length; i++) {
-    count += nums[i];
-    if (count < 0) {
-      count = 0;
-    }
-    if (count > maxCount) {
-      maxCount = count;
+const meetingTimes = (times) => {
+  const sortedTimes = times.sort((a, b) => a[0] - b[0]);
+  console.log(sortedTimes);
+  for (let i = 0; i < sortedTimes.length - 1; i++) {
+    if (sortedTimes[i][1] > sortedTimes[i+1][0]) {
+      return false;
     }
   }
-  return maxCount;
+  return true;
 };
-console.log(maxSubArray([5, 4, -1, 7, 8]));
+console.log(
+  meetingTimes([
+    [10, 15],
+    [14, 25],
+  ])
+);
