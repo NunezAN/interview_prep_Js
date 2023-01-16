@@ -32,7 +32,6 @@ const binarySearch = (nums, target) => {
   let r = nums.length - 1;
   let mid = Math.floor((l + r) / 2);
   while (l < r) {
-    console.log(nums[mid]);
     if (nums[mid] === target) {
       return mid;
     }
