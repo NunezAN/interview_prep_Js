@@ -39,12 +39,11 @@ const maxWater = (heights) => {
   let r = heights.length - 1;
   let maxArea = 0;
   while (l < r) {
-    const width = r - l;
-    const height = Math.min(heights[l], heights[r]);
-    const area = height * width;
-    if (area > maxArea) {
-      maxArea = area;
-    }
+    let length = r - l;
+    let height = Math.min(heights[l], heights[r]);
+    let area = length * height;
+    if (area > maxArea) maxArea = area;
+
     if (heights[l] < heights[r]) {
       l++;
     } else {
