@@ -27,17 +27,18 @@ const flatten = (nums) => {
   // flattenArray(nums);
 
   // return result;
-  const flattenArr = [];
-  const flattenFunc = (nums) =>{
-    for(const num of nums){
-      if(Array.isArray(num)){
-        flattenFunc(num);
+  result = [];
+  const flattenArr = (arr) => {
+    for (let num of arr) {
+      if (Array.isArray(num)) {
+        flattenArr(num);
+      } else {
+        result.push(num);
       }
-      else(flattenArr.push(num));
     }
-  }
-  flattenFunc(nums);
-  return flattenArr;
+  };
+  flattenArr(nums);
+  return result;
 };
 
 module.exports = flatten;

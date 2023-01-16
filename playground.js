@@ -1,12 +1,16 @@
-const containsDuplicate = (nums) => {
-  let dupeSet = new Set();
-  for (let num of nums) {
-    if (dupeSet.has(num)) {
-      return true;
-    } else {
-      dupeSet.add(num);
+const flatten = (nums) => {
+  result = [];
+  const flattenArr = (arr) => {
+    for (let num of arr) {
+      if (Array.isArray(num)) {
+        flattenArr(num);
+      }
+      else{
+        result.push(num);
+      }
     }
-  }
-  return false;
+  };
+  flattenArr(nums);
+  return result;
 };
-console.log(containsDuplicate([1, 2, 2, 5]));
+console.log(flatten([1, 2, 3, [4, 5]]));
