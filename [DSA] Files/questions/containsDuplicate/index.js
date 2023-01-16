@@ -11,12 +11,13 @@
  */
 
 const containsDuplicate = (nums) => {
-  let dupMap = new Map();
-  for (const num of nums) {
-    if (dupMap.has(num)) {
+  let dupeSet = new Set();
+  for (let num of nums) {
+    if (dupeSet.has(num)) {
       return true;
+    } else {
+      dupeSet.add(num);
     }
-    dupMap.set(num, true);
   }
   return false;
 };
