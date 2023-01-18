@@ -26,16 +26,15 @@ const findMinimum = (nums) => {
   //   }
   // }
   // return nums[l];
-  l = 0;
-  r = nums.length - 1;
-  let mid = Math.floor((l + r) / 2);
+  let l = 0;
+  let r = nums.length - 1;
   while (l < r) {
-    if (nums[mid] > nums[r]) {
-      l = mid + 1;
+    const m = Math.floor((l + r) / 2);
+    if (nums[m] > nums[r]) {
+      l = m + 1;
     } else {
-      r = mid;
+      r = m;
     }
-    mid = Math.floor((l + r) / 2);
   }
   return nums[l];
 };
