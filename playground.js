@@ -1,14 +1,15 @@
-const findMinimum = (nums) => {
-  let l = 0;
-  let r = nums.length - 1;
-  while (l < r) {
-    const mid = Math.floor((l + r) / 2);
-    if (nums[mid] < nums[l]) {
-      r = mid-1;
-    } else {
-      l = mid;
+const moveZeroes = (nums) => {
+  let zero = 0;
+  let findNum = 0;
+  while (findNum < nums.length) {
+    if (nums[findNum] !== 0) {
+      const temp = nums[findNum];
+      nums[findNum] = nums[zero];
+      nums[zero] = temp;
+      zero++;
     }
+    findNum++;
   }
-  return nums[r];
+  return nums;
 };
-console.log(findMinimum([1, 4, 6]));
+console.log(moveZeroes([1, 0, 2, 0]));
