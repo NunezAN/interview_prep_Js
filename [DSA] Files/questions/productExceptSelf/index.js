@@ -30,20 +30,35 @@ const productExceptSelf = (nums) => {
   // }
   // // console.log(leftProducts,rightProducts);
   // return productArray;
-  resultArr = [];
-  let selectedNum = 0;
-  while (selectedNum < nums.length) {
-    let count = 1;
-    for (const num of nums) {
-      if (num !== nums[selectedNum]) {
-        count *= num;
+  
+  
+  // resultArr = [];
+  // let selectedNum = 0;
+  // while (selectedNum < nums.length) {
+  //   let count = 1;
+  //   for (const num of nums) {
+  //     if (num !== nums[selectedNum]) {
+  //       count *= num;
+  //     }
+  //   }
+  //   resultArr.push(count);
+  //   count = 1;
+  //   selectedNum++;
+  // }
+  // return resultArr;
+
+  let result = [];
+  for (let i = 0; i < nums.length; i++) {
+    let total;
+    for (let j = 0; j < nums.length; j++) {
+      if (i !== j) {
+        total = total * nums[j] || nums[j] ;
+        console.log(total);
       }
     }
-    resultArr.push(count);
-    count = 1;
-    selectedNum++;
+    result.push(total);
   }
-  return resultArr;
+  return result;
 };
 
 module.exports = productExceptSelf;
