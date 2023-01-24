@@ -1,25 +1,16 @@
-const search = (nums, target) => {
-  let l = 0;
-  let r = nums.length - 1;
-  while (l < r) {
-    const mid = Math.floor((l + r) / 2);
-    if (target === nums[mid]) {
-      return mid;
+const stocks = (prices) => {
+  let end = prices.length - 1;
+  let start = 0;
+  let max = 0;
+  while (end > 0) {
+    while (start < prices.length) {
+      const sum = prices[end] - prices[start];
+      if (sum > max) max = sum;
+      start++;
     }
-    if (nums[mid] < nums[r]) {
-      if (nums[r] < target || target < nums[mid]) {
-        r = mid - 1;
-      } else {
-        l = mid + 1;
-      }
-    } else {
-      if (nums[r] > target || target > nums[mid]) {
-        r = mid - 1;
-      } else {
-        l = mid + 1;
-      }
-    }
+    start = 0;
+    end--;
   }
-  return -1;
+  return max;
 };
-console.log(search([5, 4, 1, 2, 3], 2));
+console.log(stocks([8, 3, 6, 1, 6, 4, 7]));
