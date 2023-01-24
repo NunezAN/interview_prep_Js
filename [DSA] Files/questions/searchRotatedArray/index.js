@@ -43,22 +43,45 @@ const search = (nums, target) => {
   //   }
   // }
   // return "not found";
-  l = 0;
-  r = nums.length - 1;
-  let mid = Math.floor((l + r) / 2);
+  // l = 0;
+  // r = nums.length - 1;
+  // let mid = Math.floor((l + r) / 2);
+  // while (l <= r) {
+  //   if (nums[mid] === target) {
+  //     return mid;
+  //   }
+  //   if(nums[mid]>target||target>nums[r]){
+  //     r=mid-1;
+  //   }
+  //   else{
+  //     l=mid+1;
+  //   }
+  //   mid = Math.floor((l + r) / 2);
+  // }
+  // return 0;
+
+  let l = 0;
+  let r = nums.length - 1;
   while (l <= r) {
-    if (nums[mid] === target) {
+    const mid = Math.floor((l + r) / 2);
+    if (target === nums[mid]) {
       return mid;
     }
-    if(nums[mid]>target||target>nums[r]){
-      r=mid-1;
+    if (nums[mid] < nums[r]) {
+      if (nums[r] < target || target < nums[mid]) {
+        r = mid - 1;
+      } else {
+        l = mid + 1;
+      }
+    } else {
+      if (nums[l] > target || target > nums[mid]) {
+        l = mid + 1;
+      } else {
+        r = mid - 1;
+      }
     }
-    else{
-      l=mid+1;
-    }
-    mid = Math.floor((l + r) / 2);
   }
-  return 0;
+  return -1;
 };
 
 module.exports = search;

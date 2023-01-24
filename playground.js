@@ -1,15 +1,25 @@
-const productExceptSelf = (nums) => {
-  let result = [];
-  for (let i = 0; i < nums.length; i++) {
-    let total;
-    for (let j = 0; j < nums.length; j++) {
-      if (i !== j) {
-        total = total * nums[j] || nums[j] ;
-        console.log(total);
+const search = (nums, target) => {
+  let l = 0;
+  let r = nums.length - 1;
+  while (l < r) {
+    const mid = Math.floor((l + r) / 2);
+    if (target === nums[mid]) {
+      return mid;
+    }
+    if (nums[mid] < nums[r]) {
+      if (nums[r] < target || target < nums[mid]) {
+        r = mid - 1;
+      } else {
+        l = mid + 1;
+      }
+    } else {
+      if (nums[r] > target || target > nums[mid]) {
+        r = mid - 1;
+      } else {
+        l = mid + 1;
       }
     }
-    result.push(total);
   }
-  return result;
+  return -1;
 };
-console.log(productExceptSelf([1, 2, 3, 4]));
+console.log(search([5, 4, 1, 2, 3], 2));
