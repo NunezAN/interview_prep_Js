@@ -23,12 +23,12 @@ const sumOfTwo = (nums1, nums2, target) => {
   //   }
   // }
   // return false;
-  const remainderSet = new Set();
+  sumSet = new Set();
   for (num of nums1) {
-    remainderSet.add(target - num);
+    sumSet.add(target - num);
   }
   for (num of nums2) {
-    if (remainderSet.has(num)) {
+    if (sumSet.has(num)) {
       return true;
     }
   }

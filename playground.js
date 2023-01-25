@@ -1,16 +1,13 @@
-const stocks = (prices) => {
-  let end = prices.length - 1;
-  let start = 0;
-  let max = 0;
-  while (end > 0) {
-    while (start < prices.length) {
-      const sum = prices[end] - prices[start];
-      if (sum > max) max = sum;
-      start++;
-    }
-    start = 0;
-    end--;
+const sumOfTwo = (nums1, nums2, target) => {
+  sumSet = new Set();
+  for (num of nums1) {
+    sumSet.add(target - num);
   }
-  return max;
+  for (num of nums2) {
+    if (sumSet.has(num)) {
+      return true;
+    }
+  }
+  return false;
 };
-console.log(stocks([8, 3, 6, 1, 6, 4, 7]));
+console.log(sumOfTwo([1, 2, 3], [5, 2], 8));
