@@ -47,16 +47,12 @@ const twoSortedSum = (nums, target) => {
   //     }
   //     targetMap.set(target - nums[i], i);
   //   }
-  l = 0;
-  r = nums.length - 1;
-  while (l < r) {
-    const numSum = nums[l] + nums[r];
-    if (numSum === target) {
-      return [l, r];
-    } else if (numSum < target) {
-      l++;
+  let sumMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (sumMap.has(nums[i])) {
+      return [sumMap.get(nums[i]), i];
     } else {
-      r--;
+      sumMap.set(target - nums[i], i);
     }
   }
 };
